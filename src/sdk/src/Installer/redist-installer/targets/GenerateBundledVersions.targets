@@ -372,6 +372,7 @@
       <Net90ILCompilerSupportedRids Include="
         @(Net80ILCompilerSupportedRids);
         linux-arm;
+        linux-loongarch64;
         linux-musl-arm;
         win-x86;
         " />
@@ -403,6 +404,7 @@
         linux-arm;
         linux-arm64;
         linux-bionic-arm;
+        linux-loongarch64;
         linux-musl-x64;
         linux-musl-arm;
         linux-musl-arm64;
