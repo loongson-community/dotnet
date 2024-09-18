@@ -23,6 +23,8 @@
     <PublishReadyToRun Condition="'$(TargetOS)' == 'netbsd' Or '$(TargetOS)' == 'illumos' Or '$(TargetOS)' == 'solaris' Or '$(TargetOS)' == 'haiku'">false</PublishReadyToRun>
     <!-- Disable crossgen on FreeBSD when cross building from Linux. -->
     <PublishReadyToRun Condition="'$(TargetOS)' == 'freebsd' and '$(CrossBuild)' == 'true'">false</PublishReadyToRun>
+    <!-- XXX: Disable crossgen for loongarch64 cross builds. -->
+    <PublishReadyToRun Condition="'$(TargetArchitecture)' == 'loongarch64' and '$(CrossBuild)' == 'true'">false</PublishReadyToRun>
     <PublishReadyToRunComposite>$(PublishReadyToRun)</PublishReadyToRunComposite>
   </PropertyGroup>
 
