@@ -541,6 +541,12 @@
 #cmakedefine TARGET_ARM64 1
 
 /* ... */
+#cmakedefine TARGET_LOONGARCH 1
+
+/* ... */
+#cmakedefine TARGET_LOONGARCH64 1
+
+/* ... */
 #cmakedefine TARGET_POWERPC 1
 
 /* ... */
