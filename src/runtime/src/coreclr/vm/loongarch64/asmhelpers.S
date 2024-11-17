@@ -1114,18 +1114,3 @@ LEAF_ENTRY GetThreadStaticsVariableOffset, _TEXT
         EPILOG_RETURN
 LEAF_END GetThreadStaticsVariableOffset, _TEXT
 // ------------------------------------------------------------------
-
-// ------------------------------------------------------------------
-// size_t GetTLSResolverAddress()
-
-// Helper to get the TLS resolver address. This will be then used to determine if we have a static or dynamic resolver.
-LEAF_ENTRY GetTLSResolverAddress, _TEXT
-        //                           $fp,$ra
-        PROLOG_SAVE_REG_PAIR_INDEXED  22, 1, 16
-        pcalau12i  $a0, %desc_pc_hi20(t_ThreadStatics)
-        addi.d     $a0, $a0, %desc_pc_lo12(t_ThreadStatics)
-        ld.d       $a0, $a0, %desc_ld(t_ThreadStatics)
-        EPILOG_RESTORE_REG_PAIR_INDEXED  22, 1, 16
-        EPILOG_RETURN
-LEAF_END GetTLSResolverAddress, _TEXT
-// ------------------------------------------------------------------
