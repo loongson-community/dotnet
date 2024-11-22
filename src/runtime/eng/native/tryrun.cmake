@@ -28,7 +28,8 @@ if(EXISTS ${CROSS_ROOTFS}/usr/lib/gcc/armv7-alpine-linux-musleabihf OR
    EXISTS ${CROSS_ROOTFS}/usr/lib/gcc/ppc64le-alpine-linux-musl OR
    EXISTS ${CROSS_ROOTFS}/usr/lib/gcc/i586-alpine-linux-musl OR
    EXISTS ${CROSS_ROOTFS}/usr/lib/gcc/x86_64-alpine-linux-musl OR
-   EXISTS ${CROSS_ROOTFS}/usr/lib/gcc/riscv64-alpine-linux-musl)
+   EXISTS ${CROSS_ROOTFS}/usr/lib/gcc/riscv64-alpine-linux-musl OR
+   EXISTS ${CROSS_ROOTFS}/usr/lib/gcc/loongarch64-alpine-linux-musl)
 
   set(ALPINE_LINUX 1)
 elseif(EXISTS ${CROSS_ROOTFS}/bin/freebsd-version)
