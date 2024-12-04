@@ -75,6 +75,15 @@ endif (CLR_CMAKE_TARGET_ARCH_ARM64 OR CLR_CMAKE_TARGET_ARCH_AMD64)
 
 if (CLR_CMAKE_TARGET_ARCH_LOONGARCH64)
   create_gcinfo_lib(TARGET gcinfo_unix_loongarch64 OS unix ARCH loongarch64)
+  # dotnet-unofficial-build: provide similar abilities as arm64/x64
+  # not merging the whole block into the previous, for easier patch rebases
+  create_gcinfo_lib(TARGET gcinfo_universal_arm64 OS universal ARCH arm64)
+  create_gcinfo_lib(TARGET gcinfo_unix_x64 OS unix ARCH x64)
+  if (CLR_CMAKE_BUILD_COMMUNITY_ALTJITS EQUAL 1)
+    # loongarch64 is the native arch here
+    create_gcinfo_lib(TARGET gcinfo_unix_riscv64 OS unix ARCH riscv64)
+  endif(CLR_CMAKE_BUILD_COMMUNITY_ALTJITS EQUAL 1)
+  create_gcinfo_lib(TARGET gcinfo_win_x64 OS win ARCH x64)
 endif (CLR_CMAKE_TARGET_ARCH_LOONGARCH64)
 
 if (CLR_CMAKE_TARGET_ARCH_RISCV64)
